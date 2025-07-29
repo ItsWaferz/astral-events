@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Star, Sparkles, Users, Heart, Gift, Phone, Mail, MapPin, Calendar, Crown, Zap, Menu, X } from 'lucide-react';
+import { Star, Sparkles, Users, Heart, Gift, Phone, Mail, MapPin, Calendar, Crown, Zap, Menu, X, Orbit, Moon, Camera } from 'lucide-react';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,7 +18,7 @@ function App() {
   const services = [
     {
       icon: <Heart className="w-8 h-8" />,
-      title: "Hostess Nunți",
+      title: "Hostess Evinimente",
       description: "Profesioniste elegante care vor face ziua voastră specială să fie perfectă, cu atenție la detalii și servicii impecabile."
     },
     {
@@ -27,66 +27,63 @@ function App() {
       description: "Animatoare talentate care transformă petrecerile copiilor în aventuri magice pline de râsete și distracție."
     },
     {
-      icon: <Users className="w-8 h-8" />,
-      title: "Evenimente Corporate",
-      description: "Echipe profesionale pentru conferințe, lansări de produse și evenimente de companie de orice amploare."
+      icon: <Camera className="w-8 h-8" />,
+      title: "Foto & Video",
+      description: "Cadre pline de emoție și naturalețe, păstrate cu grijă pentru a spune povestea fiecărui eveniment."
     }
   ];
 
   const packages = [
     {
-      name: "Stardust",
-      icon: <Star className="w-8 h-8" />,
-      price: "500 RON",
-      duration: "4 ore",
+      name: "Stardust Kids",
+      icon: <Sparkles className="w-8 h-8" />,
+      price: "250 RON",
+      duration: "3 ore",
       features: [
-        "1 hostess profesională",
-        "Ținută elegantă inclusă",
-        "Experiență de bază",
-        "Punctualitate garantată"
+        "2 animatori",
+        "Costum tematic inclus",
+        "Activități interactive",
+        "Energie și distracție garantată"
       ],
       color: "from-blue-600 to-purple-600",
       popular: false
     },
     {
-      name: "Stardust",
-      icon: <Star className="w-8 h-8" />,
-      price: "500 RON",
-      duration: "4 ore",
+      name: "Moon",
+      icon: <Moon className="w-8 h-8" />,
+      price: "300 RON",
+      duration: "3 ore",
       features: [
-        "1 hostess profesională",
+        "1 hostess",
         "Ținută elegantă inclusă",
-        "Experiență de bază",
-        "Punctualitate garantată"
+        "Prezență caldă și rafinată",
+        "Ideal pentru evenimente medii"
       ],
       color: "from-blue-600 to-purple-600",
       popular: false
     },
     {
       name: "Constellation",
-      icon: <Crown className="w-8 h-8" />,
-      price: "850 RON",
-      duration: "6 ore",
+      icon: <Star className="w-8 h-8" />,
+      price: "500 RON",
+      duration: "4+ ore",
       features: [
         "2 hostess profesionale",
-        "Ținute premium inclusă",
-        "Experiență avansată",
-        "Coordonare evenimente",
-        "Suport foto/video"
+        "Ținută elegantă inclusă",
+        "Servicii foto/video",
+        "Potrivit pentru evenimente ample",
       ],
       color: "from-purple-600 to-pink-600",
       popular: true
     },
     {
       name: "Galaxy",
-      icon: <Zap className="w-8 h-8" />,
+      icon: <Orbit className="w-8 h-8 animate-spin" style={{ animationDuration: "2.2s" }}/>,
       price: "La cerere",
       duration: "Personalizat",
       features: [
         "Număr personalizat de hostess",
         "Servicii adaptate evenimentului",
-        "Consultanță completă",
-        "Coordonare pe măsură",
         "Pachete combinate disponibile",
         "Ofertă personalizată"
       ],
@@ -248,7 +245,7 @@ function App() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {packages.map((pkg, index) => (
               <div 
                 key={index}
