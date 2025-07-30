@@ -18,7 +18,7 @@ function App() {
   const services = [
     {
       icon: <Heart className="w-8 h-8" />,
-      title: "Hostess Evinimente",
+      title: "Hostess Evenimente",
       description: "Profesioniste elegante care vor face ziua voastră specială să fie perfectă, cu atenție la detalii și servicii impecabile."
     },
     {
