@@ -38,7 +38,7 @@ function App() {
       name: "Stardust Kids",
       icon: <Sparkles className="w-8 h-8" />,
       price: "300 RON",
-      duration: "3 ore",
+      duration: "2 ore",
       features: [
         "1 animator",
         "Costum tematic inclus",
