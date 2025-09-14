@@ -37,13 +37,13 @@ function App() {
     {
       name: "Stardust Kids",
       icon: <Sparkles className="w-8 h-8" />,
-      price: "250 RON",
+      price: "300 RON",
       duration: "3 ore",
       features: [
-        "2 animatori",
+        "1 animator",
         "Costum tematic inclus",
-        "Activități interactive",
-        "Energie și distracție garantată"
+        "Jocuri interactive",
+        "Baloane si facepainting"
       ],
       color: "from-blue-600 to-purple-600",
       popular: false
@@ -52,7 +52,7 @@ function App() {
       name: "Moon",
       icon: <Moon className="w-8 h-8" />,
       price: "300 RON",
-      duration: "3 ore",
+      duration: "2 ore",
       features: [
         "1 hostess",
         "Ținută elegantă inclusă",
@@ -63,18 +63,18 @@ function App() {
       popular: false
     },
     {
-      name: "Constellation",
-      icon: <Star className="w-8 h-8" />,
-      price: "500 RON",
-      duration: "4+ ore",
+      name: "Foto & Video",
+      icon: <Camera className="w-8 h-8" />,
+      price: "175 RON",
+      duration: "2+ ore",
       features: [
-        "2 hostess profesionale",
-        "Ținută elegantă inclusă",
-        "Servicii foto/video",
-        "Potrivit pentru evenimente ample",
+        "1 fotograf", 
+        "Editare potrivită evenimentului",
+        "Retuș imperfecțiuni",
+        "Livrare digitală rapidă",
       ],
       color: "from-purple-600 to-pink-600",
-      popular: true
+      popular: false
     },
     {
       name: "Galaxy",
@@ -82,13 +82,13 @@ function App() {
       price: "La cerere",
       duration: "Personalizat",
       features: [
-        "Număr personalizat de hostess",
+        "Număr personalizat de hostess/animatori",
         "Servicii adaptate evenimentului",
         "Pachete combinate disponibile",
         "Ofertă personalizată"
       ],
       color: "from-pink-600 to-orange-600",
-      popular: false,
+      popular: true,
       isCustom: true
     }
   ];
