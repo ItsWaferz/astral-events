@@ -63,6 +63,7 @@ function App() {
     {
       name: "Foto & Video",
       icon: <Camera className="w-8 h-8" />,
+
       duration: "2+ ore",
       features: [
         "1 fotograf", 
@@ -262,8 +263,8 @@ function App() {
                 
                 <h3 className="text-2xl font-bold mb-2 text-white">{pkg.name}</h3>
                 <div className="mb-6">
-                  {/* <span className="text-3xl font-bold text-purple-400">{pkg.price}</span> */}
-                  <span className="text-slate-400 ml-2">/ {pkg.duration}</span>
+                  {/* <span className="text-3xl font-bold text-purple-400">{pkg.price}</span>
+                  <span className="text-slate-400 ml-2">/ {pkg.duration}</span> */}
                 </div>
                 
                 <ul className="space-y-3 mb-8">
