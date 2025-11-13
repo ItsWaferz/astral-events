@@ -37,7 +37,6 @@ function App() {
     {
       name: "Stardust Kids",
       icon: <Sparkles className="w-8 h-8" />,
-      price: "300 RON",
       duration: "2 ore",
       features: [
         "1 animator",
@@ -51,7 +50,6 @@ function App() {
     {
       name: "Moon",
       icon: <Moon className="w-8 h-8" />,
-      price: "300 RON",
       duration: "2 ore",
       features: [
         "1 hostess",
@@ -65,7 +63,6 @@ function App() {
     {
       name: "Foto & Video",
       icon: <Camera className="w-8 h-8" />,
-      price: "175 RON",
       duration: "2+ ore",
       features: [
         "1 fotograf", 
@@ -265,7 +262,7 @@ function App() {
                 
                 <h3 className="text-2xl font-bold mb-2 text-white">{pkg.name}</h3>
                 <div className="mb-6">
-                  <span className="text-3xl font-bold text-purple-400">{pkg.price}</span>
+                  {/* <span className="text-3xl font-bold text-purple-400">{pkg.price}</span> */}
                   <span className="text-slate-400 ml-2">/ {pkg.duration}</span>
                 </div>
                 
