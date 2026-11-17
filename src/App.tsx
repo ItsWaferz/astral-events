@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Star, Sparkles, Users, Heart, Gift, Phone, Mail, MapPin, Calendar, Crown, Zap, Menu, X, Orbit, Moon, Camera } from 'lucide-react';
+import { Star, Sparkles, Users, Heart, Gift, Phone, Mail, MapPin, Calendar, Crown, Zap, Menu, X, Orbit, Moon, Image } from 'lucide-react';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -25,25 +26,30 @@ function App() {
       icon: <Gift className="w-8 h-8" />,
       title: "Animație Copii",
       description: "Animatoare talentate care transformă petrecerile copiilor în aventuri magice pline de râsete și distracție."
-    },
-    {
-      icon: <Camera className="w-8 h-8" />,
-      title: "Foto & Video",
-      description: "Cadre pline de emoție și naturalețe, păstrate cu grijă pentru a spune povestea fiecărui eveniment."
     }
+  ];
+
+  const galleryImages = [
+    { src: "https://images.unsplash.com/photo-1602631985686-1bb0e6a8696e?w=600&h=400&fit=crop", alt: "Petrecere copii cu baloane colorate" },
+    { src: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&h=400&fit=crop", alt: "Animație la petrecere" },
+    { src: "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&h=400&fit=crop", alt: "Decorațiuni colorate" },
+    { src: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=600&h=400&fit=crop", alt: "Confetti și bucurie" },
+    { src: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&h=400&fit=crop", alt: "Lumini și magie" },
+    { src: "https://images.unsplash.com/photo-1504457047772-27faf1c00561?w=600&h=400&fit=crop", alt: "Moment magic la petrecere" },
   ];
 
   const packages = [
     {
       name: "Stardust Kids",
       icon: <Sparkles className="w-8 h-8" />,
-      price: "300 RON",
-      duration: "2 ore",
+      price: "180 RON",
+      duration: "oră",
       features: [
         "1 animator",
         "Costum tematic inclus",
         "Jocuri interactive",
-        "Baloane si facepainting"
+        "Baloane și facepainting",
+        "Mașină de baloane"
       ],
       color: "from-blue-600 to-purple-600",
       popular: false
@@ -51,29 +57,15 @@ function App() {
     {
       name: "Moon",
       icon: <Moon className="w-8 h-8" />,
-      price: "300 RON",
-      duration: "2 ore",
+      price: "500 RON",
+      duration: "oră",
       features: [
-        "1 hostess",
+        "2 hostess",
         "Ținută elegantă inclusă",
         "Prezență caldă și rafinată",
         "Ideal pentru evenimente medii"
       ],
       color: "from-blue-600 to-purple-600",
-      popular: false
-    },
-    {
-      name: "Foto & Video",
-      icon: <Camera className="w-8 h-8" />,
-      price: "175 RON",
-      duration: "2+ ore",
-      features: [
-        "1 fotograf", 
-        "Editare potrivită evenimentului",
-        "Retuș imperfecțiuni",
-        "Livrare digitală rapidă",
-      ],
-      color: "from-purple-600 to-pink-600",
       popular: false
     },
     {
@@ -126,6 +118,7 @@ function App() {
             <div className="hidden md:flex space-x-8">
               <button onClick={() => scrollToSection('home')} className="hover:text-purple-400 transition-colors">Acasă</button>
               <button onClick={() => scrollToSection('services')} className="hover:text-purple-400 transition-colors">Servicii</button>
+              <button onClick={() => scrollToSection('gallery')} className="hover:text-purple-400 transition-colors">Galerie</button>
               <button onClick={() => scrollToSection('packages')} className="hover:text-purple-400 transition-colors">Pachete</button>
               <button onClick={() => scrollToSection('contact')} className="hover:text-purple-400 transition-colors">Contact</button>
             </div>
@@ -156,6 +149,12 @@ function App() {
                   Servicii
                 </button>
                 <button 
+                  onClick={() => scrollToSection('gallery')} 
+                  className="block px-3 py-2 text-white hover:text-purple-400 transition-colors w-full text-left"
+                >
+                  Galerie
+                </button>
+                <button 
                   onClick={() => scrollToSection('packages')} 
                   className="block px-3 py-2 text-white hover:text-purple-400 transition-colors w-full text-left"
                 >
@@ -182,8 +181,7 @@ function App() {
               Astral Events
             </h1>
             <p className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed">
-              Transformăm momentele voastre speciale în experiențe<br />
-              <span className="text-purple-400 font-semibold">magice și de neuitat</span>
+              <span className="text-purple-400 font-semibold">Moments that feel like magic</span>
             </p>
           </div>
           
@@ -216,7 +214,7 @@ function App() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {services.map((service, index) => (
               <div 
                 key={index}
@@ -232,6 +230,61 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/* Gallery Section */}
+      <section id="gallery" className="relative z-10 py-20 px-4 bg-slate-800/20">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              Universul Nostru de Distracție
+            </h2>
+            <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+              Fiecare petrecere e o poveste nouă — cu zâmbete largi, ochi strălucitori și amintiri care rămân pentru totdeauna ✨
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {galleryImages.map((image, index) => (
+              <div
+                key={index}
+                className="relative group overflow-hidden rounded-2xl border border-purple-500/20 hover:border-purple-500/40 transition-all duration-500 cursor-pointer aspect-[3/2]"
+                onClick={() => setSelectedImage(index)}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <p className="text-white text-sm font-medium">{image.alt}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Image Lightbox */}
+      {selectedImage !== null && (
+        <div
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            className="absolute top-6 right-6 text-white hover:text-purple-400 transition-colors"
+            onClick={() => setSelectedImage(null)}
+          >
+            <X className="w-8 h-8" />
+          </button>
+          <img
+            src={galleryImages[selectedImage].src.replace('w=600&h=400', 'w=1200&h=800')}
+            alt={galleryImages[selectedImage].alt}
+            className="max-w-full max-h-[85vh] object-contain rounded-lg"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
 
       {/* Packages Section */}
       <section id="packages" className="relative z-10 py-20 px-4 bg-slate-800/30">
@@ -265,8 +318,8 @@ function App() {
                 
                 <h3 className="text-2xl font-bold mb-2 text-white">{pkg.name}</h3>
                 <div className="mb-6">
-                  {/* <span className="text-3xl font-bold text-purple-400">{pkg.price}</span>
-                  <span className="text-slate-400 ml-2">/ {pkg.duration}</span> */}
+                  <span className="text-3xl font-bold text-purple-400">{pkg.price}</span>
+                  {!pkg.isCustom && <span className="text-slate-400 ml-2">/ {pkg.duration}</span>}
                 </div>
                 
                 <ul className="space-y-3 mb-8">
