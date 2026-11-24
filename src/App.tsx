@@ -30,12 +30,12 @@ function App() {
   ];
 
   const galleryImages = [
-    { src: "https://images.unsplash.com/photo-1602631985686-1bb0e6a8696e?w=600&h=400&fit=crop", alt: "Petrecere copii cu baloane colorate" },
-    { src: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&h=400&fit=crop", alt: "Animație la petrecere" },
-    { src: "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&h=400&fit=crop", alt: "Decorațiuni colorate" },
-    { src: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=600&h=400&fit=crop", alt: "Confetti și bucurie" },
-    { src: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&h=400&fit=crop", alt: "Lumini și magie" },
-    { src: "https://images.unsplash.com/photo-1504457047772-27faf1c00561?w=600&h=400&fit=crop", alt: "Moment magic la petrecere" },
+    { src: "/gallery/spiderman-parasuta.jpg", alt: "Spiderman — jocuri cu parașuta" },
+    { src: "/gallery/elsa-copii.jpg", alt: "Elsa — magia petrecerii" },
+    { src: "/gallery/belle-petrecere.jpg", alt: "Belle — aniversare de poveste" },
+    { src: "/gallery/minnie-baloane.jpg", alt: "Minnie — baloane și distracție" },
+    { src: "/gallery/facepainting-activitati.jpg", alt: "Facepainting și activități creative" },
+    { src: "/gallery/mos-craciun.jpg", alt: "Moș Crăciun — magia sărbătorilor" },
   ];
 
   const packages = [
@@ -278,7 +278,7 @@ function App() {
             <X className="w-8 h-8" />
           </button>
           <img
-            src={galleryImages[selectedImage].src.replace('w=600&h=400', 'w=1200&h=800')}
+            src={galleryImages[selectedImage].src}
             alt={galleryImages[selectedImage].alt}
             className="max-w-full max-h-[85vh] object-contain rounded-lg"
             onClick={(e) => e.stopPropagation()}
